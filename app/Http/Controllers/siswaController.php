@@ -10,12 +10,12 @@ class siswaController extends Controller
     public function index()
     {
         $data = siswa::all();
-        return view('siswa.index', compact('data'));
+        return view('siswa', compact('data'));
     }
 
     public function create()
     {
-        return view('siswa.create');
+        return view('siswa');
     }
 
     public function store(Request $request)

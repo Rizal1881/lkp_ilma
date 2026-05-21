@@ -6,11 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class jadwalmobil extends Model
 {
-    protected $table = 'Jadwals';
+    protected $table = 'jadwals';
 
     protected $fillable = [
         'mobil_id',
-        'instruktur_id',
         'siswa_id',
         'tanggal',
         'jam_mulai',
@@ -20,11 +19,6 @@ class jadwalmobil extends Model
     public function Mobil()
     {
         return $this->belongsTo(Mobil::class);
-    }
-
-    public function Instruktur()
-    {
-        return $this->belongsTo(Instruktur::class);
     }
 
     public function Siswa()

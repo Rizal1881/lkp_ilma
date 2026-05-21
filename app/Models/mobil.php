@@ -8,8 +8,10 @@ class mobil extends Model
 {
     protected $table = 'Mobils';
 
-    protected $fillable = ['nama_mobil','jenis','status'];
-
+    protected $fillable = [
+        'jenis',
+        'jumlah'
+    ];
     public function Jadwal()
     {
         return $this->hasMany(jadwalmobil::class);

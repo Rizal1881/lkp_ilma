@@ -11,9 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('instrukturs', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::table('pendaftaran', function (Blueprint $table) {
+            $table->string('order_id')->nullable();
+            $table->string('payment_status')->default('pending'); // pending, success, failed
+            $table->string('snap_token')->nullable();
         });
     }
 
@@ -22,6 +23,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('instrukturs');
+        Schema::table('pendaftaran', function (Blueprint $table) {
+            //
+        });
     }
 };

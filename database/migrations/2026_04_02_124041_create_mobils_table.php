@@ -6,23 +6,16 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
-        public function up()
+    public function up(): void
     {
         Schema::create('mobils', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_mobil');
-            $table->string('jenis');
-            $table->string('status')->default('tersedia');
+            $table->enum('jenis', ['Manual', 'Matic'])->unique(); 
+            $table->integer('jumlah')->default(0); 
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('mobils');
